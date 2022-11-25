@@ -3,8 +3,11 @@ import { Button } from "antd"
 export default function Header() {
     return(
         <ul className="header-container">
-            <a href="/">Home</a>
-           
+            <Link to={'/home'}>
+            <Button type="link" htmlType="button">
+                Home
+            </Button>
+            </Link>
             <Link to={'/add-new'}>
             <Button type="link" htmlType="button">
                 Add Recipe

@@ -11,7 +11,7 @@ function App() {
   <BrowserRouter>
   <Header />
   <Routes>
-    <Route path='/' element={<Home />} />
+    <Route path='/home' element={<Home />} />
     <Route path='/list-by-type' element={<ListByType />} />
     <Route path='/add-new' element={<AddNew />} />
     <Route path='/one-recipe' element={<OneRecipe />} />
