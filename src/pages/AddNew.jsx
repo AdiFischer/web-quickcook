@@ -12,7 +12,8 @@ import { PlusOutlined } from '@ant-design/icons';
 
 export default function AddNew() {
     const [image, setImage] = useState()
-    function convertFile(file) {
+
+    function convertFile(file, obj) {
         if (file) {
             //const fileRef = file[0] || ""
             const fileType = file.type || ""
@@ -20,7 +21,15 @@ export default function AddNew() {
             reader.readAsBinaryString(file)
             reader.onload = (ev) => {
                 // convert it to base64
-                setImage(`data:${fileType};base64,${window.btoa(ev.target.result)}`)
+                const obj1 = {...obj, image:`data:${fileType};base64,${window.btoa(ev.target.result)}`}
+                console.log('hello', obj1)
+                fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(obj1),
+                })
                 
             }
 
@@ -37,19 +46,20 @@ export default function AddNew() {
     const { TextArea } = Input;
 
     const onFinish = (values) => {
-        console.log(values)
-        // This is taking long... and image is not yet defined immediately below
-        convertFile(values?.image.file.originFileObj)
+        //console.log(values)
         const obj = {
             name: values.name,
             servings: values.servings,
             readyin: values.readyin,
             ingredients: values.ingredients,
             instructions: values.instructions,
-            'image': image,
+            image: values.image,
             type: values.type[0]
         }
-
+        // This is taking long... and image is not yet defined immediately below
+        if(values?.image){
+            convertFile(values?.image.file.originFileObj, obj)
+        }else{
         fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, {
             method: 'POST',
             headers: {
@@ -59,10 +69,11 @@ export default function AddNew() {
         })
         message.success('Submit success!');
         navigate('/home')
-    };
+    };}
     const onFinishFailed = () => {
         message.error('Submit failed!');
     };
+    
 
     return (
         <>
