@@ -11,6 +11,22 @@ import {
 import { PlusOutlined } from '@ant-design/icons';
 
 export default function AddNew() {
+    const [image, setImage] = useState()
+    function convertFile(file) {
+        if (file) {
+            //const fileRef = file[0] || ""
+            const fileType = file.type || ""
+            const reader = new FileReader()
+            reader.readAsBinaryString(file)
+            reader.onload = (ev) => {
+                // convert it to base64
+                setImage(`data:${fileType};base64,${window.btoa(ev.target.result)}`)
+                
+            }
+
+        }
+    }
+
     const navigate = useNavigate()
     const [form, setForm] = useState({})
 
@@ -21,12 +37,16 @@ export default function AddNew() {
     const { TextArea } = Input;
 
     const onFinish = (values) => {
+        console.log(values)
+        // This is taking long... and image is not yet defined immediately below
+        convertFile(values?.image.file.originFileObj)
         const obj = {
             name: values.name,
             servings: values.servings,
             readyin: values.readyin,
             ingredients: values.ingredients,
             instructions: values.instructions,
+            'image': image,
             type: values.type[0]
         }
 
@@ -113,8 +133,8 @@ export default function AddNew() {
                         ]}
                     />
                 </Form.Item>
-                {/* <Form.Item label="Upload" valuePropName="fileList">
-                    <Upload action="/upload.do" listType="picture-card">
+                <Form.Item name='image' label="Upload">
+                    <Upload listType="picture-card">
                         <div>
                             <PlusOutlined />
                             <div
@@ -126,7 +146,7 @@ export default function AddNew() {
                             </div>
                         </div>
                     </Upload>
-                </Form.Item> */}
+                </Form.Item>
                 <Form.Item label="Button">
                     <Button htmlType="submit">Submit</Button>
                 </Form.Item>
