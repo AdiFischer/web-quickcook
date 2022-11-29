@@ -11,7 +11,7 @@ import {
 import { PlusOutlined } from '@ant-design/icons';
 
 export default function AddNew() {
-    const [image, setImage] = useState()
+    //const [image, setImage] = useState()
 
     function convertFile(file, obj) {
         if (file) {
@@ -30,9 +30,7 @@ export default function AddNew() {
                     },
                     body: JSON.stringify(obj1),
                 })
-                
             }
-
         }
     }
 
