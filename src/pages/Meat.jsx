@@ -1,19 +1,16 @@
-
-import { useState, useEffect } from "react"
+import AllRecipes from "./AllRecipes";
+import { UserChoiceContext } from "../context/UserChoiceContext";
+import { useContext } from "react";
+import { useEffect } from "react";
 
 export default function Meat() {
-    const [meat, setMeat] = useState([])
+    const { setBestFor } = useContext(UserChoiceContext);
     useEffect(() => {
-    fetch (`${process.env.REACT_APP_ENDPOINT}/recipes/type/meat`) 
-    .then(results => results.json())
-    .then(data => setMeat(data))
-    .catch(alert)
-}, [setMeat])
-console.log(meat)
-    
-        return (
-            
-            <h1>Meat</h1>
-            
-            )
-        }
+        setBestFor("meat");
+    },[setBestFor])
+    return (
+        <div>
+            <AllRecipes />
+        </div>
+    )
+}

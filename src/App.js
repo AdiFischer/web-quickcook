@@ -3,12 +3,12 @@ import './assets/Styles.css';
 import Header from './components/Header';
 import Footer from './components/Footer'
 import Home from './pages/Home';
-// import Salads from './pages/Salads';
-// import Chicken from './pages/Chicken';
-// import Dairy from './pages/Dairy';
-// import Meat from './pages/Meat';
-// import Fish from './pages/Fish';
-// import Desserts from './pages/Desserts';
+import Salads from './pages/Salads';
+import Chicken from './pages/Chicken';
+import Dairy from './pages/Dairy';
+import Meat from './pages/Meat';
+import Fish from './pages/Fish';
+import Desserts from './pages/Desserts';
 import AddNew from './pages/AddNew';
 import OneRecipe from './pages/OneRecipe';
 import { UserChoiceContextProvider } from './context/UserChoiceContext';
@@ -24,14 +24,14 @@ function App() {
           <Routes>
             <Route path='/home' element={<Home />} />
             <Route path='/all-recipes' element={<AllRecipes />} />
-            {/* <Route path='/fish' element={<Fish />} />
+            <Route path='/fish' element={<Fish />} />
+            <Route path='/salads' element={<Salads />} />
             <Route path='/dairy' element={<Dairy />} />
             <Route path='/chicken' element={<Chicken />} />
             <Route path='/meat' element={<Meat />} />
-            <Route path='/desserts' element={<Desserts />} /> */}
+            <Route path='/desserts' element={<Desserts />} /> 
             <Route path='/add-new' element={<AddNew />} />
-            {/* <Route path='/one-recipe' element={<OneRecipe />} /> */}
-            {/* <Route path='*' element={<h2>Page not found</h2>} /> */}
+            <Route path='/one-recipe' element={<OneRecipe />} />
           </Routes>
         </RecipesContextProvider>
         <Footer />

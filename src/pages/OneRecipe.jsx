@@ -1,4 +1,4 @@
-// import AddNew from "./AddNew"
+// //import AddNew from "./AddNew"
 // import { useState, useEffect } from "react"
 
 // export default function OneRecipe(recipeId) {
@@ -12,13 +12,12 @@
     
 //         return (
 //             <div className="recipe">
-//             <img src={recipe.image} width={300}alt='' />
+//             <img src={recipeId.image} width={300}alt='' />
 //                     <h1>{recipeId.name}</h1>
-//                     <p>{recipe.servings}</p>
-//                     <p>{readyin}</p>
-//                     <p>{ingredients}</p>
-//                     <p>{instructions}</p>
-//                     <p>{type}</p>
+//                     <p>{recipeId.servings}</p>
+//                     <p>{recipeId.readyin}</p>
+//                     <p>{recipeId.ingredients}</p>
+//                     <p>{recipeId.instructions}</p>
 //             </div> 
 //             )
 //         }

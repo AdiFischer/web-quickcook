@@ -21,8 +21,9 @@ export default function AddNew() {
             reader.readAsBinaryString(file)
             reader.onload = (ev) => {
                 // convert it to base64
-                const obj1 = {...obj, image:`data:${fileType};base64,${window.btoa(ev.target.result)}`}
-                console.log('hello', obj1)
+                const obj1 = { ...obj, image: `data:${fileType};base64,${window.btoa(ev.target.result)}` }
+                console.log(obj1)
+               // return (add .image to line above-console.log(obj1.image)and uncoment return )
                 fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, {
                     method: 'POST',
                     headers: {
@@ -30,6 +31,7 @@ export default function AddNew() {
                     },
                     body: JSON.stringify(obj1),
                 })
+                    .catch(console.error)
             }
         }
     }
@@ -55,23 +57,25 @@ export default function AddNew() {
             type: values.type[0]
         }
         // This is taking long... and image is not yet defined immediately below
-        if(values?.image){
+        if (values?.image) {
             convertFile(values?.image.file.originFileObj, obj)
-        }else{
-        fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(obj),
-        })
-        message.success('Submit success!');
-        navigate('/home')
-    };}
+        } else {
+             fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            })
+                .catch(console.error)
+            message.success('Submit success!');
+            navigate('/home')
+        };
+    }
     const onFinishFailed = () => {
         message.error('Submit failed!');
     };
-    
+
 
     return (
         <>
