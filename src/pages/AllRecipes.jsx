@@ -1,22 +1,23 @@
-
+import { useNavigate } from 'react-router-dom';
 import { Card, Col, Row, Spin } from "antd";
-import { useContext, useEffect } from "react";
-import { RecipesContext} from "../context/RecipesContext"
-import { UserChoiceContext } from "../context/UserChoiceContext";
+import { useContext, useEffect, useState } from "react";
+// import { RecipesContext} from "../context/RecipesContext"
+// import { UserChoiceContext } from "../context/UserChoiceContext";
 
 const { Meta } = Card;
 
-export default function AllRecipes() {
-  const { recipes, setRecipes } = useContext(RecipesContext);
-  const { bestFor } = useContext(UserChoiceContext);
+export default function AllRecipes({ bestFor }) {
+  const [recipes, setRecipes]  = useState();
+  // const { bestFor } = useContext(UserChoiceContext);
+  const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`)
+    fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/type/${bestFor}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("this is", bestFor);
-        const recipes = data.filter((recipes) => recipes.type === bestFor);
-        setRecipes(recipes);
+        // const recipes = data.filter((recipes) => recipes.type === bestFor);
+        setRecipes(data);
       })
       .catch((err) => console.error(err));
   }, [bestFor]);
@@ -43,8 +44,8 @@ export default function AllRecipes() {
                       <Card
                         className="recipe-card"
                         loading={!recipe}
-                        cover={  
-                          <img
+                        cover={
+                          <img onClick={() => navigate(`/recipe/${recipe._id}`)}
                             className="recipe-images"
                             alt={recipe?.name}
                             src={recipe?.image} width={300}

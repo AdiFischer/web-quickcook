@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import {
     Button,
     Form,
@@ -23,7 +24,7 @@ export default function AddNew() {
                 // convert it to base64
                 const obj1 = { ...obj, image: `data:${fileType};base64,${window.btoa(ev.target.result)}` }
                 console.log(obj1)
-               // return (add .image to line above-console.log(obj1.image)and uncoment return )
+               //return //(add .image to line above-console.log(obj1.image)and uncoment return )
                 fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, {
                     method: 'POST',
                     headers: {
@@ -31,11 +32,15 @@ export default function AddNew() {
                     },
                     body: JSON.stringify(obj1),
                 })
+                .then(response => response.json())
+                .then(data => {
+                    message.success('Submit success!');
+                    navigate(`/${obj1.type}`)
+                })
                     .catch(console.error)
             }
         }
     }
-
     const navigate = useNavigate()
     const [form, setForm] = useState({})
 
@@ -67,9 +72,12 @@ export default function AddNew() {
                 },
                 body: JSON.stringify(obj),
             })
+                .then(response => response.json())
+                .then(data => {
+                    message.success('Submit success!');
+                    navigate(`/${values.type[0]}`)
+                })
                 .catch(console.error)
-            message.success('Submit success!');
-            navigate('/home')
         };
     }
     const onFinishFailed = () => {
@@ -161,7 +169,10 @@ export default function AddNew() {
                     </Upload>
                 </Form.Item>
                 <Form.Item label="Button">
-                    <Button htmlType="submit">Submit</Button>
+                {/* <Link to={'/recipe/:id'}> */}
+                    <Button htmlType="submit" navigate="/recipe/:id">Submit
+                    </Button>
+                    {/* </ Link> */}
                 </Form.Item>
 
             </Form>
