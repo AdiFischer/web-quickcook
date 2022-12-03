@@ -1,56 +1,102 @@
-.App {
-    text-align: center;
-  }
-  
-  .App-header {
-    background-color: #3764c0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .header-container {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .recipeType-container {
-    display: flex;
-    justify-content: space-evenly;
-  }
+/* .App {
+  text-align: center;
+} */
 
-  .App-link {
-    color: #61dafb;
-  }
+/* .App-header {
+  background-color: #3764c0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+} */
 
-  .hero-container {
-    display: flex;
-    text-align: center;
-    width: 100%;
-    padding: 2rem;
-    justify-content: center;
-  }
-  
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
-  footer {
-    width: 100%;
-    padding: 2rem;
-    text-align: center;
-  }
+.header-container {
+  display: flex;
+  padding: 0.7em;
+  justify-content: space-evenly;
+  background-color: rgb(251, 191, 168);
+}
+
+.recipeType-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.hero-container {
+  display: flex;
+  text-align: center;
+  /* padding: 2rem; */
+  justify-content: center;
+  margin-top: 1em;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.recipe {
+  padding: 100px;
+  background-color: rgb(246, 228, 212);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  margin-top: 2em;
+  background-color: rgb(251, 191, 168);
+  /* position: absolute; */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;  
+    /* bottom: 0; */
+}
+
+.image-resize1 {
+  display: flex !important;
+  justify-content: center;
+  /* text-align: center; */
+  /* width: 540px;
+  height: auto; */
+}
+.image-resize2 {
+  display: flex !important;
+  justify-content: center;
+  /* width: 540px;
+  height: auto; */
+}
+.image-resize3 {
+  display: flex !important;
+  justify-content: center;
+  /* width: 540px;
+  height: auto; */
+}
+.image-resize4{
+  display: flex !important;
+  justify-content: center;
+  /* width: 540px;
+  height: auto; */
+}
+.add-new {
+  padding: 100px;
+}

@@ -23,8 +23,8 @@ export default function AddNew() {
             reader.onload = (ev) => {
                 // convert it to base64
                 const obj1 = { ...obj, image: `data:${fileType};base64,${window.btoa(ev.target.result)}` }
-                console.log(obj1)
-               //return //(add .image to line above-console.log(obj1.image)and uncoment return )
+                console.log(obj1.image)
+                //return //(add .image to line above-console.log(obj1.image)and uncoment return )
                 fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, {
                     method: 'POST',
                     headers: {
@@ -32,11 +32,11 @@ export default function AddNew() {
                     },
                     body: JSON.stringify(obj1),
                 })
-                .then(response => response.json())
-                .then(data => {
-                    message.success('Submit success!');
-                    navigate(`/${obj1.type}`)
-                })
+                    .then(response => response.json())
+                    .then(data => {
+                        message.success('Submit success!');
+                        navigate(`/${obj1.type}`)
+                    })
                     .catch(console.error)
             }
         }
@@ -65,7 +65,7 @@ export default function AddNew() {
         if (values?.image) {
             convertFile(values?.image.file.originFileObj, obj)
         } else {
-             fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, { 
+            fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -86,8 +86,10 @@ export default function AddNew() {
 
 
     return (
-        <>
-            <Form name='addNew'
+        <div style={{height: "100%"}}>
+            <Form 
+                className='add-new'
+                name='addNew'
                 layout="vertical"
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
@@ -169,14 +171,12 @@ export default function AddNew() {
                     </Upload>
                 </Form.Item>
                 <Form.Item label="Button">
-                {/* <Link to={'/recipe/:id'}> */}
-                    <Button htmlType="submit" navigate="/recipe/:id">Submit
+                    <Button htmlType="submit">Submit
                     </Button>
-                    {/* </ Link> */}
                 </Form.Item>
 
             </Form>
-        </>
+        </div>
     );
 
 }

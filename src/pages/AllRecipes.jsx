@@ -7,7 +7,7 @@ import { useContext, useEffect, useState } from "react";
 const { Meta } = Card;
 
 export default function AllRecipes({ bestFor }) {
-  const [recipes, setRecipes]  = useState();
+  const [recipes, setRecipes] = useState();
   // const { bestFor } = useContext(UserChoiceContext);
   const navigate = useNavigate()
 
@@ -21,54 +21,54 @@ export default function AllRecipes({ bestFor }) {
       })
       .catch((err) => console.error(err));
   }, [bestFor]);
-// console.log(recipes)
+  // console.log(recipes)
 
   return (
     <>
-    <div id="all-recipes">
-      <h1 className="recipe-type"></h1>
-      <div>
-        {!recipes ? (
-          <Spin size="large" />
-        ) : (
-          <div className="recipe-cards-overall">
-            <Row gutter={16} justify="space-around" align="middle">
-              {recipes.map((recipe) => {
-                return (
-                  <div>
-                    <Col
-                      key={recipe._id}
-                      className="recipes-cards-group"
-                      span={8}
-                    >
-                      <Card
-                        className="recipe-card"
-                        loading={!recipe}
-                        cover={
-                          <img onClick={() => navigate(`/recipe/${recipe._id}`)}
-                            className="recipe-images"
-                            alt={recipe?.name}
-                            src={recipe?.image} width={300}
-                          />
-                        }
-                        hoverable
+      <div id="all-recipes">
+        <h1 className="recipe-type"></h1>
+        <div>
+          {!recipes ? (
+            <Spin size="large" />
+          ) : (
+            <div className="recipe-cards-overall">
+              <Row gutter={16} justify="space-around" align="middle">
+                {recipes.map((recipe) => {
+                  return (
+                    <div>
+                      <Col
+                        key={recipe._id}
+                        className="recipes-cards-group"
+                        span={8}
                       >
-                        <Meta
-                          title={recipe?.name}
-                        />
-                        {/* <div className="title-paragraphs">
+                        <Card
+                          className="recipe-card"
+                          loading={!recipe}
+                          cover={
+                            <img onClick={() => navigate(`/recipe/${recipe._id}`)}
+                              className="recipe-images"
+                              alt={recipe?.name}
+                              src={recipe?.image} width={300}
+                            />
+                          }
+                          hoverable
+                        >
+                          <Meta
+                            title={recipe?.name}
+                          />
+                          {/* <div className="title-paragraphs">
                           <p id="styling-title">{recipe?.type}</p>
                         </div> */}
-                      </Card>
-                    </Col>
-                  </div>
-                );
-              })}
-            </Row>
-          </div>
-        )}
+                        </Card>
+                      </Col>
+                    </div>
+                  );
+                })}
+              </Row>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
     </>
   );
 }

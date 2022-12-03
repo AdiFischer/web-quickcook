@@ -13,21 +13,23 @@ function App() {
   return (
     <BrowserRouter>
       <UserChoiceContextProvider>
-        <Header />
-        <RecipesContextProvider>
-          <Routes>
-            <Route path='/home' element={<Home />} />
-            <Route path='/fish' element={<AllRecipes bestFor="fish" />} />
-            <Route path='/salads' element={< AllRecipes bestFor="salads"/>} />
-            <Route path='/dairy' element={<AllRecipes bestFor="dairy" />} />
-            <Route path='/chicken' element={<AllRecipes bestFor="chicken" />} />
-            <Route path='/meat' element={<AllRecipes bestFor="meat" />} />
-            <Route path='/desserts' element={<AllRecipes bestFor="desserts" />} /> 
-            <Route path='/add-new' element={<AddNew />} />
-            <Route path='/recipe/:id' element={<OneRecipe />} />
-          </Routes>
-        </RecipesContextProvider>
-        <Footer />
+        <main>
+          <Header />
+          <RecipesContextProvider>
+            <Routes>
+              <Route path='/home' element={<Home />} />
+              <Route path='/fish' element={<AllRecipes bestFor="fish" />} />
+              <Route path='/salads' element={< AllRecipes bestFor="salads" />} />
+              <Route path='/dairy' element={<AllRecipes bestFor="dairy" />} />
+              <Route path='/chicken' element={<AllRecipes bestFor="chicken" />} />
+              <Route path='/meat' element={<AllRecipes bestFor="meat" />} />
+              <Route path='/desserts' element={<AllRecipes bestFor="desserts" />} />
+              <Route path='/add-new' element={<AddNew />} />
+              <Route path='/recipe/:id' element={<OneRecipe />} />
+            </Routes>
+          </RecipesContextProvider>
+          <Footer />
+        </main>
       </UserChoiceContextProvider>
     </BrowserRouter>
   );

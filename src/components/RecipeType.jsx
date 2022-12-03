@@ -3,7 +3,7 @@ import { Button } from "antd"
 
 export default function RecipeType() {
     return(
-        <ul className="recipeType-container">
+        <div className="recipeType-container">
             <Link to={'/dairy'}>
             <Button type="link" htmlType="button">
                 Dairy
@@ -35,6 +35,6 @@ export default function RecipeType() {
             </Button>
             </Link>
        
-    </ul>
+    </div>
     )
 }

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { Button } from "antd"
 export default function Header() {
     return(
-        <ul className="header-container">
+        <div className="header-container">
             <Link to={'/home'}>
             <Button type="link" htmlType="button">
                 Home
@@ -19,6 +19,6 @@ export default function Header() {
             </Button>
             </Link>
             {/* <a href="/add recipe">Add Recipe</a> */}
-        </ul>
+        </div>
     )
 }

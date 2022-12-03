@@ -19,11 +19,11 @@ export default function OneRecipe() {
                 ? <>
                     <img src={recipe.image} width={300} alt='' />
                     <h1>{recipe.name} </h1>
-                    <p> Serving:{recipe.servings}</p>
-                    <p>Time:{recipe.readyin}</p>
-                    <h2>Ingrediens</h2>
+                    <p> Serving: {recipe.servings}</p>
+                    <p>Time: {recipe.readyin}</p>
+                    <h2>Ingredients</h2>
                     <p>{recipe.ingredients}</p>
-                    <h2>Instractions</h2>
+                    <h2>Instructions</h2>
                     <p>{recipe.instructions}</p>
                 </>
                 :
