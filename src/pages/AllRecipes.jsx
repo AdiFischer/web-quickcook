@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Card, Col, Row, Spin } from "antd";
 import { useContext, useEffect, useState } from "react";
+import '../assets/Styles.css';
 // import { RecipesContext} from "../context/RecipesContext"
 // import { UserChoiceContext } from "../context/UserChoiceContext";
 
@@ -32,10 +33,12 @@ export default function AllRecipes({ bestFor }) {
             <Spin size="large" />
           ) : (
             <div className="recipe-cards-overall">
-              <Row gutter={16} justify="space-around" align="middle">
+              <Row 
+              className='row'
+              gutter={16} justify="space-around" align="middle"
+              >
                 {recipes.map((recipe) => {
                   return (
-                    <div>
                       <Col
                         key={recipe._id}
                         className="recipes-cards-group"
@@ -48,7 +51,7 @@ export default function AllRecipes({ bestFor }) {
                             <img onClick={() => navigate(`/recipe/${recipe._id}`)}
                               className="recipe-images"
                               alt={recipe?.name}
-                              src={recipe?.image} width={300}
+                              src={recipe?.image} 
                             />
                           }
                           hoverable
@@ -61,7 +64,6 @@ export default function AllRecipes({ bestFor }) {
                         </div> */}
                         </Card>
                       </Col>
-                    </div>
                   );
                 })}
               </Row>

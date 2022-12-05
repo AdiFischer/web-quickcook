@@ -14,14 +14,14 @@ export default function RecipeType() {
                 Salads
             </Button>
             </Link>
-            <Link to={'/fish'}>
+            <Link to={'/seafood'}>
             <Button type="link" htmlType="button">
-            Fish
+            Seafood
             </Button>
             </Link>
-            <Link to={'/chicken'}>
+            <Link to={'/poultry'}>
             <Button type="link" htmlType="button">
-            Chicken
+            Poultry
             </Button>
             </Link>
             <Link to={'/meat'}>

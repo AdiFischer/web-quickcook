@@ -149,8 +149,8 @@ export default function AddNew() {
                         options={[
                             { value: 'salads', label: 'Salads' },
                             { value: 'dairy', label: 'Dairy' },
-                            { value: 'fish', label: 'Fish' },
-                            { value: 'chicken', label: 'Chicken' },
+                            { value: 'seafood', label: 'Seafood' },
+                            { value: 'poultry', label: 'Poultry' },
                             { value: 'meat', label: 'Meat' },
                             { value: 'desserts', label: 'Desserts' },
                         ]}

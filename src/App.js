@@ -18,18 +18,18 @@ function App() {
           <RecipesContextProvider>
             <Routes>
               <Route path='/home' element={<Home />} />
-              <Route path='/fish' element={<AllRecipes bestFor="fish" />} />
+              <Route path='/seafood' element={<AllRecipes bestFor="seafood" />} />
               <Route path='/salads' element={< AllRecipes bestFor="salads" />} />
               <Route path='/dairy' element={<AllRecipes bestFor="dairy" />} />
-              <Route path='/chicken' element={<AllRecipes bestFor="chicken" />} />
+              <Route path='/poultry' element={<AllRecipes bestFor="poultry" />} />
               <Route path='/meat' element={<AllRecipes bestFor="meat" />} />
               <Route path='/desserts' element={<AllRecipes bestFor="desserts" />} />
               <Route path='/add-new' element={<AddNew />} />
               <Route path='/recipe/:id' element={<OneRecipe />} />
             </Routes>
           </RecipesContextProvider>
-          <Footer />
         </main>
+        <Footer />
       </UserChoiceContextProvider>
     </BrowserRouter>
   );

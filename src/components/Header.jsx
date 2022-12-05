@@ -5,17 +5,17 @@ export default function Header() {
         <div className="header-container">
             <Link to={'/home'}>
             <Button type="link" htmlType="button">
-                Home
+                Home 🏠
             </Button>
             </Link>
             <Link to={'/add-new'}>
             <Button type="link" htmlType="button">
-                Add Recipe
+                Add Recipe 📝
             </Button>
             </Link>
             <Link to={'/sign-in'}>
             <Button type="link" htmlType="button">
-                Sign-in
+                Sign-in 📧
             </Button>
             </Link>
             {/* <a href="/add recipe">Add Recipe</a> */}
