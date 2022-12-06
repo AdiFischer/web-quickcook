@@ -5,7 +5,7 @@ export default function RecipeType() {
     return(
         <div className="recipeType-container">
             <Link to={'/dairy'}>
-            <Button type="link" htmlType="button">
+            <Button type="primary" htmlType="button">
                 Dairy
             </Button>
             </Link>

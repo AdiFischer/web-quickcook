@@ -55,10 +55,6 @@ code {
     monospace;
 }
 
-.recipe {
-  padding: 100px;
-  background-color: rgb(246, 228, 212);
-}
 
 footer {
   display: flex;
@@ -70,8 +66,8 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  width: 100vw;  
-    /* bottom: 0; */
+  width: 100vw;
+  /* bottom: 0; */
 }
 
 .image-resize1 {
@@ -81,39 +77,93 @@ footer {
   /* width: 540px;
   height: auto; */
 }
+
 .image-resize2 {
   display: flex !important;
   justify-content: center;
   /* width: 540px;
   height: auto; */
 }
+
 .image-resize3 {
   display: flex !important;
   justify-content: center;
   /* width: 540px;
   height: auto; */
 }
-.image-resize4{
+
+.image-resize4 {
   display: flex !important;
   justify-content: center;
   /* width: 540px;
   height: auto; */
 }
+
 .add-new {
   padding: 100px;
 }
+
 .recipe-card {
-  
   width: 300px;
 
 }
+
 .recipes-cards-group {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.recipe-images{
+
+.recipe-images {
   aspect-ratio: 1/1;
   object-fit: cover;
+
+}
+
+.recipe {
+  padding: 100px;
+  background-color: rgb(246, 228, 212);
+  display: flex;
+  /* justify-content: space-between; */
+
+
+}
+
+/* .imageContainer{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+} */
+.recipeContainer {
+  padding-left: 2em;
+  /* display: flex; */
+  /* align-items: flex-start;
+  justify-content: center; */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* max-height: 20px;
+max-width: 20px; */
+  /* width: 20px;
+height: 20px; */
+
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid rebeccapurple;
+  flex-direction: column;
+}
+
+.google-login-container {
+  display: flex;
+ 
+  justify-content: center;
+  border: solid red 2em;
 
 }

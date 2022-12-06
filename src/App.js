@@ -2,7 +2,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './assets/Styles.css';
 import Header from './components/Header';
 import Footer from './components/Footer'
+import Login from './components/Login'
+import Signup from './components/Signup';
 import Home from './pages/Home';
+import Signin from './pages/Signin';
 import AddNew from './pages/AddNew';
 import OneRecipe from './pages/OneRecipe';
 import { UserChoiceContextProvider } from './context/UserChoiceContext';
@@ -26,6 +29,8 @@ function App() {
               <Route path='/desserts' element={<AllRecipes bestFor="desserts" />} />
               <Route path='/add-new' element={<AddNew />} />
               <Route path='/recipe/:id' element={<OneRecipe />} />
+              <Route path='/sign-in' element={<Signin />} />
+              {/* <Route path='/sign-up' element={<Signup />} /> */}
             </Routes>
           </RecipesContextProvider>
         </main>
