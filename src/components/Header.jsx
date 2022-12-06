@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-import { Button } from "antd"
+// import { button } from "antd"
 import { UserChoiceContext } from '../context/UserChoiceContext';
 import { useContext } from "react";
 
@@ -18,24 +18,24 @@ export default function Header() {
     return (
         <div className="header-container">
             <Link to={'/home'}>
-                <Button type="link" htmlType="button">
-                    Home 🏠
-                </Button>
+                <button className="button-85" type="link" htmlType="button">
+                    Home
+                </button>
             </Link>
             <Link to={'/add-new'}>
-                <Button type="link" htmlType="button">
-                    Add Recipe 📝
-                </Button>
+                <button className="button-85" type="link" htmlType="button">
+                    Add Recipe
+                </button>
             </Link>
             {user ?
-                <Button type="link" htmlType="button" onClick={SignOut}>
-                Sign-Out 📧
-            </Button>
+                <button className="button-85" type="link" htmlType="button" onClick={SignOut}>
+                Sign-Out
+            </button>
             :
                 <Link to={'/sign-in'} >
-                    <Button type="link" htmlType="button">
-                        Sign-in 📧
-                    </Button>
+                    <button className="button-85" type="link" htmlType="button">
+                        Sign-in
+                    </button>
                 </Link>
             }
         </div>

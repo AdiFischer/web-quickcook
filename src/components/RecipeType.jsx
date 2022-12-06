@@ -1,40 +1,41 @@
 import { Link } from "react-router-dom"
-import { Button } from "antd"
+//import { Button } from "antd"
 
 export default function RecipeType() {
     return(
         <div className="recipeType-container">
             <Link to={'/dairy'}>
-            <Button type="primary" htmlType="button">
+            <button className="button-recipe-type" type="primary" htmlType="button">
                 Dairy
-            </Button>
+            </button>
             </Link>
             <Link to={'/salads'}>
-            <Button type="link" htmlType="button">
+            <button className="button-recipe-type" type="link" htmlType="button">
                 Salads
-            </Button>
+            </button>
             </Link>
             <Link to={'/seafood'}>
-            <Button type="link" htmlType="button">
+            <button className="button-recipe-type" type="link" htmlType="button">
             Seafood
-            </Button>
+            </button>
             </Link>
             <Link to={'/poultry'}>
-            <Button type="link" htmlType="button">
+            <button className="button-recipe-type" type="link" htmlType="button">
             Poultry
-            </Button>
+            </button>
             </Link>
             <Link to={'/meat'}>
-            <Button type="link" htmlType="button">
+            <button className="button-recipe-type" type="link" htmlType="button">
             Meat
-            </Button>
+            </button>
             </Link>
             <Link to={'/desserts'}>
-            <Button type="link" htmlType="button">
+            <button className="button-recipe-type" type="link" htmlType="button">
             Desserts
-            </Button>
+            </button>
             </Link>
        
     </div>
     )
 }
+

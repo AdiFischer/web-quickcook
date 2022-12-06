@@ -18,17 +18,17 @@ export default function OneRecipe() {
         <div className="recipe">
             {recipe
                 ? <>
-                <div className="imageContainer">
-                    <img src={recipe.image} width={400} alt='' />
+                    <div className="imageContainer">
+                        <img src={recipe.image} width={400} alt='' />
                     </div>
                     <div className="recipeContainer">
-                    <h1>{recipe.name} </h1>
-                    <p> Serving: {recipe.servings}</p>
-                    <p>Time: {recipe.readyin}</p>
-                    <h2>Ingredients</h2>
-                    <p>{recipe.ingredients}</p>
-                    <h2>Instructions</h2>
-                    <p>{recipe.instructions}</p>
+                        <h1>{recipe.name} </h1>
+                        <p> Serving: {recipe.servings}</p>
+                        <p>Time: {recipe.readyin}</p>
+                        <h2>Ingredients</h2>
+                        <p>{recipe.ingredients}</p>
+                        <h2>Instructions</h2>
+                        <p>{recipe.instructions}</p>
                     </div>
                 </>
                 :
