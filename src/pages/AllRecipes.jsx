@@ -27,7 +27,7 @@ export default function AllRecipes({ bestFor }) {
   return (
     <>
       <div id="all-recipes">
-        <h1 className="recipe-type"></h1>
+        {/* <h1 className="recipe-type"></h1> */}
         <div>
           {!recipes ? (
             <Spin size="large" />
@@ -39,17 +39,19 @@ export default function AllRecipes({ bestFor }) {
               >
                 {recipes.map((recipe) => {
                   return (
-                      <Col
-                        key={recipe._id}
-                        className="recipes-cards-group"
-                        span={8}
-                      >
+                    <Col 
+                    // xs={5} md={4}                    
+                    key={recipe._id}
+                    className="recipes-cards-group"
+                    span={8}
+                    >
                         <Card
                           className="recipe-card"
                           loading={!recipe}
                           cover={
                             <img onClick={() => navigate(`/recipe/${recipe._id}`)}
-                              className="recipe-images"
+                            className="recipe-images"
+                            // style={{ width: "18rem" }}
                               alt={recipe?.name}
                               src={recipe?.image} 
                             />

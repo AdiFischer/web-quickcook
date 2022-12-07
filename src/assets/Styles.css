@@ -1,26 +1,9 @@
-/* .App {
-  text-align: center;
-} */
-
-/* .App-header {
-  background-color: #3764c0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
 .header-container {
   display: flex;
   padding: 1.2em;
   justify-content: space-evenly;
   background-color: #c6c9a4;
-  
-
-
+  /* margin-bottom: -22px; */
 }
 
 .recipeType-container {
@@ -35,14 +18,18 @@
   color: #61dafb;
 }
 
-/* .hero-container {
+.hero-container {
   display: flex;
   text-align: center;
-  /* padding: 2rem; */
-  /* justify-content: center;
-  margin-top: em;
+  padding: 2rem;
+  justify-content: center;
+  /* margin-top: em; */
   background-color: #78b649;
-} */ */
+}
+
+/* .main-tag{
+  min-height: 95vh;
+} */
 
 body {
   margin: 0;
@@ -59,55 +46,43 @@ code {
 }
 
 
-footer {
-  display: flex;
-  justify-content: center;
-  padding: 1em;
-  margin-top: 2em;
-  background-color: rgb(251, 191, 168);
-  /* position: absolute; */
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  /* bottom: 0; */
-}
-
 .image-resize1 {
   display: flex !important;
   justify-content: center;
-  /* text-align: center; */
-  /* width: 540px;
-  height: auto; */
+  
 }
 
 .image-resize2 {
   display: flex !important;
   justify-content: center;
-  /* width: 540px;
-  height: auto; */
+ 
 }
 
 .image-resize3 {
   display: flex !important;
   justify-content: center;
-  /* width: 540px;
-  height: auto; */
+ 
 }
 
 .image-resize4 {
   display: flex !important;
   justify-content: center;
-  /* width: 540px;
-  height: auto; */
+  
 }
 
 .add-new {
   padding: 100px;
 }
-
+.recipe-cards-overall{
+  display: flex;
+  justify-content: space-between;
+  background-color: #6f8f71;
+}
 .recipe-card {
   width: 300px;
+  margin: 20px;
+  box-shadow:rgba(51, 37, 37, 0.25) 0px 14px 28px,
+    rgba(57, 39, 39, 0.22) 0px 10px 10px;
 
 }
 
@@ -115,28 +90,21 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .recipe-images {
   aspect-ratio: 1/1;
   object-fit: cover;
-
 }
 
 .recipe {
-  padding: 100px;
+  padding: 120px;
   background-color: rgb(246, 228, 212);
   display: flex;
   /* justify-content: space-between; */
-
-
 }
 
-/* .imageContainer{
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-} */
 .recipeContainer {
   padding-left: 2em;
   /* display: flex; */
@@ -149,12 +117,9 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 2%;
-  /* background-color: #78b649; */
-  /* max-height: 20px;
-max-width: 20px; */
-  /* width: 20px;
-height: 20px; */
-
+}
+.logo1 {
+  width: 20vw;
 }
 
 .login-container {
@@ -173,24 +138,7 @@ height: 20px; */
 
 }
 
-.logo1 {
-  width: 20vw;
-}
 .button-recipe-type{
-  /* color: #fff;
-  padding: 15px 25px;
-  background-color: #416a61;
-  background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
-  box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
-  border-radius: 14px;
-  font-weight: bold;
-  font-size: 16px;
-  border: 0;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  cursor: pointer; */
-
   align-items: center;
   background-color: #c6c9a4;
   border: 2px solid rgb(44, 44, 44);
@@ -228,27 +176,23 @@ height: 20px; */
   transition: transform .2s ease-out;
   z-index: -1;
 }
-
 .button-recipe-type:hover:after {
   transform: translate(0, 0);
 }
-
 .button-recipe-type:active {
   background-color: #c6c9a4;
   outline: 0;
 }
-
 .button-recipe-type:hover {
   outline: 0;
 }
-
 @media (min-width: 768px) {
   .button-recipe-type {
     padding: 0 40px;
   }
 }
 
-.button-85 {
+.button-header {
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -263,35 +207,8 @@ height: 20px; */
   touch-action: manipulation;
 }
 
-/* .button-85:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    #ffeb0ab1,
-    #ffeb0ab1,
-    #ffeb0ab1,
-    #fdac32,
-    #fdac32,
-    #fdac32,
-    #fb815893,
-    #fb815893,
-    #fb815893
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing-button-85 20s linear infinite;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-} */
 
-@keyframes glowing-button-85 {
+@keyframes glowing-button-header {
   0% {
     background-position: 0 0;
   }
@@ -303,7 +220,7 @@ height: 20px; */
   }
 }
 
-.button-85:after {
+.button-header:after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -313,49 +230,4 @@ height: 20px; */
   left: 0;
   top: 0;
   border-radius: 10px;
-}
-
-
-<!-- HTML !-->
-<button class="button-55" role="button">Button 55</button>
-
-/* CSS */
-.button-55 {
-  align-self: center;
-  background-color: #fff;
-  background-image: none;
-  background-position: 0 90%;
-  background-repeat: repeat no-repeat;
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-  box-sizing: border-box;
-  color: #41403e;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  line-height: 23px;
-  outline: none;
-  padding: .75rem;
-  text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-55:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
-}
-
-.button-55:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }

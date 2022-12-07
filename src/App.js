@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './assets/Styles.css';
 import Header from './components/Header';
-import Footer from './components/Footer'
 import Home from './pages/Home';
 import Signin from './pages/Signin';
 import AddNew from './pages/AddNew';
@@ -14,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <UserChoiceContextProvider>
-        <main>
+        <main >
           <Header />
           <RecipesContextProvider>
             <Routes>
@@ -32,7 +31,6 @@ function App() {
             </Routes>
           </RecipesContextProvider>
         </main>
-        <Footer />
       </UserChoiceContextProvider>
     </BrowserRouter>
   );

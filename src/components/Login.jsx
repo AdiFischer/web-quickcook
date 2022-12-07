@@ -18,7 +18,7 @@ export default function Login({ setUser }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const handleLogin = async (e) => {
-        e.preventDefault()
+        e.preventDefault() 
         const app = initializeApp(firebaseConfig) // connects to Firebase
         const auth = getAuth(app) // connects us to Firebase Auth
         const response = await signInWithEmailAndPassword(auth, email, password)

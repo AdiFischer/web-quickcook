@@ -5,7 +5,7 @@ import RecipeType from "../components/RecipeType";
 
 export default function Home() {
     return (
-        <div className="container" style={{hight: "100vh"}}>
+        <div className="container" >
         <Hero />
         <RecipeType />
         <PicsCarousel />

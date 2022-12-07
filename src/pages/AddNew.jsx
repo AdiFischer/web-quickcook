@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+// import Login from '../components/Login'
+// import Signup from '../components/Signup';
+import { UserChoiceContext } from '../context/UserChoiceContext';
+import { useContext } from "react";
 //import { Link } from 'react-router-dom';
 import {
     Button,
@@ -12,7 +16,7 @@ import {
 import { PlusOutlined } from '@ant-design/icons';
 
 export default function AddNew() {
-    //const [image, setImage] = useState()
+    const {user, setUser} = useContext(UserChoiceContext)
 
     function convertFile(file, obj) {
         if (file) {

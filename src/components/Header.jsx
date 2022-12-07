@@ -18,22 +18,22 @@ export default function Header() {
     return (
         <div className="header-container">
             <Link to={'/home'}>
-                <button className="button-85" type="link" htmlType="button">
+                <button className="button-header" type="link" htmlType="button">
                     Home
                 </button>
             </Link>
             <Link to={'/add-new'}>
-                <button className="button-85" type="link" htmlType="button">
+                <button className="button-header" type="link" htmlType="button">
                     Add Recipe
                 </button>
             </Link>
             {user ?
-                <button className="button-85" type="link" htmlType="button" onClick={SignOut}>
+                <button className="button-header" type="link" htmlType="button" onClick={SignOut}>
                 Sign-Out
             </button>
             :
                 <Link to={'/sign-in'} >
-                    <button className="button-85" type="link" htmlType="button">
+                    <button className="button-header" type="link" htmlType="button">
                         Sign-in
                     </button>
                 </Link>
