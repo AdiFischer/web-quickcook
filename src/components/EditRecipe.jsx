@@ -1,10 +1,6 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-// import Login from '../components/Login'
-// import Signup from '../components/Signup';
-import { UserChoiceContext } from '../context/UserChoiceContext';
-import { useContext } from "react";
-//import { Link } from 'react-router-dom';
+
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from "react-router-dom"
 import {
     Button,
     Form,
@@ -15,9 +11,20 @@ import {
 } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
-export default function AddNew() {
-    const {user, setUser} = useContext(UserChoiceContext)
-
+export default function EditRecipe() {
+    const [formValues, setFormValues] = useState()
+    const { id } = useParams()
+    const navigate = useNavigate()
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                //console.log(data)
+                setFormValues(data[0])
+                // form.setFieldsValue(data.message)
+            })
+            .catch(err => console.error(err))
+    }, [id])
     function convertFile(file, obj) {
         if (file) {
             //const fileRef = file[0] || ""
@@ -26,11 +33,11 @@ export default function AddNew() {
             reader.readAsBinaryString(file)
             reader.onload = (ev) => {
                 // convert it to base64
-                const obj1 = { ...obj, image: `data:${fileType};base64,${window.btoa(ev.target.result)}` }
-                console.log(obj1.image)
+                let obj1 = { ...obj, image: `data:${fileType};base64,${window.btoa(ev.target.result)}` }
+                //console.log(obj.image)
                 //return //(add .image to line above-console.log(obj1.image)and uncoment return )
-                fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, {
-                    method: 'POST',
+                fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/${id}`, {
+                    method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -39,30 +46,21 @@ export default function AddNew() {
                     .then(response => response.json())
                     .then(data => {
                         message.success('Submit success!');
-                        navigate(`/${obj1.type}`)
+                        navigate(`/recipe/${id}`)
                     })
                     .catch(console.error)
             }
         }
     }
-    const navigate = useNavigate()
-    const [form, setForm] = useState({})
-
-    const handleForm = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
-    }
-
-    const { TextArea } = Input;
-
     const onFinish = (values) => {
-        //console.log(values)
-        const obj = {
+        console.log(values)
+        let obj = {
             name: values.name,
             servings: values.servings,
             readyin: values.readyin,
             ingredients: values.ingredients,
             instructions: values.instructions,
-            image: values.image,
+            image:  values.image,
             type: values.type[0]
         }
 //If have user, do this
@@ -74,11 +72,13 @@ export default function AddNew() {
         //         navigate('signin')
             // }
         // This is taking long... and image is not yet defined immediately below
+        //console.log(values?.image)
         if (values?.image) {
             convertFile(values?.image.file.originFileObj, obj)
-        } else {
-            fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, {
-                method: 'POST',
+        }  else {
+
+            fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/${id}`, {
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -90,18 +90,30 @@ export default function AddNew() {
                     navigate(`/${values.type[0]}`)
                 })
                 .catch(console.error)
-        };
+            }
+            
         //if no user, send to login page
         
     }
-    const onFinishFailed = () => {
-        message.error('Submit failed!');
-    };
+    const [form, setForm] = useState({})
+    const handleForm = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value })
+    }
+    const { TextArea } = Input;
 
+    const onFinishFailed = (errorInfo) => {
+        console.log('failed', errorInfo)
+    }
+
+    if (!formValues) return <p>Loading</p>
+
+    console.log(formValues)
 
     return (
-        <div style={{height: "100%"}}>
-            <Form 
+        <div style={{ height: "100%" }}>
+            
+            <Form
+                initialValues={formValues}
                 className='add-new'
                 name='addNew'
                 layout="vertical"
@@ -109,7 +121,6 @@ export default function AddNew() {
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
             >
-                
                 <Form.Item label="Name of Recipe" name="name" onChange={handleForm} rules={[
                     {
                         required: true,
@@ -162,7 +173,8 @@ export default function AddNew() {
                     />
                 </Form.Item>
                 <Form.Item name='image' label="Upload">
-                    <Upload listType="picture-card">
+                    <img src={formValues.image} />
+                    <Upload initialValues listType="picture-card">
                         <div>
                             <PlusOutlined />
                             <div
@@ -183,5 +195,4 @@ export default function AddNew() {
             </Form>
         </div>
     );
-
-}
+};

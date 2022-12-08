@@ -2,6 +2,7 @@ import { useState } from "react"
 import { initializeApp } from "firebase/app"
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
 import { useNavigate } from "react-router-dom";
+import '../assets/Styles.css';
 
 const firebaseConfig = {
     apiKey: "AIzaSyA2jXLKtI-EDrnGtltPjXiThAXQyJ3Qos0",
@@ -26,21 +27,24 @@ export default function Signup({ setUser }) {
         navigate('/home')
     }
     return (
-        <>
-            <h1>Signup</h1>
+        <div className="signup-container">
+            <h1 className="signup-title">Signup</h1>
             <form onSubmit={handleSignup}>
-                <label htmlFor="email">Email:{' '}
+                <label className="signup-email" htmlFor="email">Email:{' '}
                     <input type="email" name="email"
                         value={email} onChange={e => setEmail(e.target.value)}
                         placeholder="yourname@domain.com" />
                 </label><br />
-                <label htmlFor="password">Password:{' '}
+                <label className="signup-password" htmlFor="password">Password:{' '}
                     <input type="password" name="password"
                         value={password} onChange={e => setPassword(e.target.value)}
                         placeholder="•••••••" />
-                </label><br />
-                <button type="submit">Signup</button>
+                </label>
+                <br />
+                <div className="signup-button">
+                    <button type="submit">Signup</button>
+                </div>
             </form>
-        </>
+        </div>
     )
 }

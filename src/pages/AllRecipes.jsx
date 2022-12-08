@@ -61,9 +61,6 @@ export default function AllRecipes({ bestFor }) {
                           <Meta
                             title={recipe?.name}
                           />
-                          {/* <div className="title-paragraphs">
-                          <p id="styling-title">{recipe?.type}</p>
-                        </div> */}
                         </Card>
                       </Col>
                   );

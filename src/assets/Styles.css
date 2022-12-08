@@ -49,40 +49,42 @@ code {
 .image-resize1 {
   display: flex !important;
   justify-content: center;
-  
+
 }
 
 .image-resize2 {
   display: flex !important;
   justify-content: center;
- 
+
 }
 
 .image-resize3 {
   display: flex !important;
   justify-content: center;
- 
+
 }
 
 .image-resize4 {
   display: flex !important;
   justify-content: center;
-  
+
 }
 
 .add-new {
   padding: 100px;
 }
-.recipe-cards-overall{
+
+.recipe-cards-overall {
   display: flex;
   justify-content: space-between;
   background-color: #6f8f71;
 }
+
 .recipe-card {
   width: 300px;
   margin: 20px;
-  box-shadow:rgba(51, 37, 37, 0.25) 0px 14px 28px,
-    rgba(57, 39, 39, 0.22) 0px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.342) 0px 14px 28px,
+    rgba(0, 0, 0, 0.237) 0px 10px 10px;
 
 }
 
@@ -90,7 +92,7 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 .recipe-images {
@@ -118,27 +120,13 @@ code {
   justify-content: center;
   padding: 2%;
 }
+
 .logo1 {
   width: 20vw;
 }
 
-.login-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: solid rebeccapurple;
-  flex-direction: column;
-}
 
-.google-login-container {
-  display: flex;
- 
-  justify-content: center;
-  border: solid red 2em;
-
-}
-
-.button-recipe-type{
+.button-recipe-type {
   align-items: center;
   background-color: #c6c9a4;
   border: 2px solid rgb(44, 44, 44);
@@ -147,7 +135,7 @@ code {
   color: black;
   cursor: pointer;
   display: flex;
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 16px;
   height: 40px;
   justify-content: center;
@@ -176,16 +164,20 @@ code {
   transition: transform .2s ease-out;
   z-index: -1;
 }
+
 .button-recipe-type:hover:after {
   transform: translate(0, 0);
 }
+
 .button-recipe-type:active {
   background-color: #c6c9a4;
   outline: 0;
 }
+
 .button-recipe-type:hover {
   outline: 0;
 }
+
 @media (min-width: 768px) {
   .button-recipe-type {
     padding: 0 40px;
@@ -212,9 +204,11 @@ code {
   0% {
     background-position: 0 0;
   }
+
   50% {
     background-position: 400% 0;
   }
+
   100% {
     background-position: 0 0;
   }
@@ -230,4 +224,86 @@ code {
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid #6f8f71;
+  border-width: 55px;
+  flex-direction: column;
+  /* margin-bottom: 5px; */
+  margin-left: 400px;
+  margin-right: 400px;
+  background-color: rgb(255, 242, 231);
+
+}
+
+.login-title {
+  color: #f8a814;
+}
+
+.login-button {
+  display: flex;
+  justify-content: center;
+  margin: 8px;
+  border: solid #f8a814 0.2em;
+  margin-left: 87px;
+  margin-right: 87px;
+}
+
+.login-email {
+  margin: 14px;
+}
+
+.login-password {
+  margin-top: 20px;
+}
+
+.google-login-container {
+  display: flex;
+  justify-content: center;
+  border: solid #f8a814 0.5em;
+}
+
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid #c6c9a4;
+  border-width: 55px;
+  flex-direction: column;
+  /* margin-top: 20px; */
+  margin-left: 400px;
+  margin-right: 400px;
+  background-color: rgb(255, 242, 231);
+}
+
+.signup-title {
+  color: #f8a814;
+}
+
+.signup-email {
+  margin: 14px;
+}
+
+.signup-password {
+  margin-top: 20px;
+}
+
+.signup-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  border: solid #f8a814 0.2em;
+  margin-left: 85px;
+  margin-right: 85px;
+}
+
+.delete-edit-button {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end
 }

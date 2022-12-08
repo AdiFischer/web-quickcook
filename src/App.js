@@ -8,6 +8,7 @@ import OneRecipe from './pages/OneRecipe';
 import { UserChoiceContextProvider } from './context/UserChoiceContext';
 import { RecipesContextProvider } from './context/RecipesContext';
 import AllRecipes from './pages/AllRecipes';
+import EditRecipe from './components/EditRecipe';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path='/desserts' element={<AllRecipes bestFor="desserts" />} />
               <Route path='/add-new' element={<AddNew />} />
               <Route path='/recipe/:id' element={<OneRecipe />} />
+              <Route path='/editrecipe/:id' element={<EditRecipe />} />
               <Route path='/sign-in' element={<Signin />} />
               {/* <Route path='/sign-up' element={<Signup />} /> */}
             </Routes>

@@ -1,11 +1,16 @@
-//import AddNew from "./AddNew"
 import { useState, useEffect } from "react"
 import { Spin } from "antd";
 import { useParams } from "react-router-dom"
 import '../assets/Styles.css';
+// import { editRecipe }from "../components/EditRecipe";
+// import { deleteRecipe } from "../components/DeleteRecipe";
+import { useNavigate } from "react-router-dom";
+
 
 export default function OneRecipe() {
+
     const { id } = useParams()
+    const navigate = useNavigate()
     const [recipe, setRecipe] = useState()
     useEffect(() => {
         fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/${id}`)
@@ -13,9 +18,33 @@ export default function OneRecipe() {
             .then(data => setRecipe(data[0]))
             .catch(alert)
     }, [])
-
+function deleteRecipe (id , setRecipe) {
+        fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/${id}`, {
+          method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+        } 
+    })
+          .then(() => {
+            fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`)
+              .then((response) => response.json())
+              .then((data) => {
+                setRecipe(data)
+                navigate('/home')
+              });
+          })
+          .catch((err) => {
+            alert(err);
+          }); 
+      };
+    
     return (
         <div className="recipe">
+            <div className="delete-edit-button">
+
+            <button onClick={() => deleteRecipe(id , setRecipe)}>Delete</button>
+            <button onClick={() => navigate(`/editrecipe/${id}`)}>Edit</button>
+            </div>
             {recipe
                 ? <>
                     <div className="imageContainer">
@@ -34,6 +63,7 @@ export default function OneRecipe() {
                 :
                 <Spin size="large" />
             }
+
         </div>
     )
 }
