@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import Login from '../components/Login'
 // import Signup from '../components/Signup';
@@ -65,6 +65,7 @@ export default function AddNew() {
             image: values.image,
             type: values.type[0]
         }
+
 //If have user, do this
         // if (user) {
         //     setUser(user)
@@ -91,16 +92,21 @@ export default function AddNew() {
                 })
                 .catch(console.error)
         };
-        //if no user, send to login page
-        
     }
     const onFinishFailed = () => {
         message.error('Submit failed!');
     };
-
+    
+    //if no user, send to login page
+    useEffect (() => {
+        if(!user){
+            navigate('/sign-in')
+        }
+    },[user])
 
     return (
         <div style={{height: "100%"}}>
+            <h1 className='form-add-recipe'>Add Recipe</h1>
             <Form 
                 className='add-new'
                 name='addNew'

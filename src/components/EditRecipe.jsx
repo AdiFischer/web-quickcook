@@ -12,14 +12,25 @@ import {
 import { PlusOutlined } from '@ant-design/icons';
 
 export default function EditRecipe() {
+    const [image, setImage] = useState()
     const [formValues, setFormValues] = useState()
     const { id } = useParams()
     const navigate = useNavigate()
+    const[ defaultFileList, setDefaultFileList] =  useState([
+          {
+            uid: "1",
+            name: "damian.jpg",
+            url: "https://www.damianmontero.com/damian.jpg",
+            
+          }
+        ])
     useEffect(() => {
         fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/${id}`)
             .then(response => response.json())
             .then(data => {
                 //console.log(data)
+                defaultFileList[0].url = data[0].image
+                setDefaultFileList(defaultFileList)
                 setFormValues(data[0])
                 // form.setFieldsValue(data.message)
             })
@@ -61,19 +72,10 @@ export default function EditRecipe() {
             ingredients: values.ingredients,
             instructions: values.instructions,
             image:  values.image,
-            type: values.type[0]
+            type: values.type
         }
-//If have user, do this
-        // if (user) {
-        //     setUser(user)
-        //     navigate('addNew')
-        // }
-        // else {
-        //         navigate('signin')
-            // }
-        // This is taking long... and image is not yet defined immediately below
-        //console.log(values?.image)
-        if (values?.image) {
+        if (values?.image && values?.image.file) {
+
             convertFile(values?.image.file.originFileObj, obj)
         }  else {
 
@@ -87,12 +89,10 @@ export default function EditRecipe() {
                 .then(response => response.json())
                 .then(data => {
                     message.success('Submit success!');
-                    navigate(`/${values.type[0]}`)
+                    navigate(`/recipe/${id}`)
                 })
                 .catch(console.error)
             }
-            
-        //if no user, send to login page
         
     }
     const [form, setForm] = useState({})
@@ -173,8 +173,8 @@ export default function EditRecipe() {
                     />
                 </Form.Item>
                 <Form.Item name='image' label="Upload">
-                    <img src={formValues.image} />
-                    <Upload initialValues listType="picture-card">
+                    {/* <img src={formValues.image} /> */}
+                    <Upload defaultFileList={defaultFileList} listType="picture-card">
                         <div>
                             <PlusOutlined />
                             <div

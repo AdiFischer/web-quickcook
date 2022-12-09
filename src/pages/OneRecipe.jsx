@@ -2,8 +2,6 @@ import { useState, useEffect } from "react"
 import { Spin } from "antd";
 import { useParams } from "react-router-dom"
 import '../assets/Styles.css';
-// import { editRecipe }from "../components/EditRecipe";
-// import { deleteRecipe } from "../components/DeleteRecipe";
 import { useNavigate } from "react-router-dom";
 
 
@@ -40,10 +38,9 @@ function deleteRecipe (id , setRecipe) {
     
     return (
         <div className="recipe">
-            <div className="delete-edit-button">
-
-            <button onClick={() => deleteRecipe(id , setRecipe)}>Delete</button>
-            <button onClick={() => navigate(`/editrecipe/${id}`)}>Edit</button>
+            <div>
+            <button className="delete-edit-button" onClick={() => deleteRecipe(id , setRecipe)}>Delete</button>
+            <button className="delete-edit-button" onClick={() => navigate(`/editrecipe/${id}`)}>Edit</button>
             </div>
             {recipe
                 ? <>
