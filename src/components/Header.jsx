@@ -1,16 +1,11 @@
 import { Link, useNavigate } from "react-router-dom"
-// import { button } from "antd"
 import { UserChoiceContext } from '../context/UserChoiceContext';
 import { useContext } from "react";
-
-// import Login from './Login'
-// import Signup from './Signup';
-// import { UserChoiceContext, UserChoiceContextProvider } from '../context/UserChoiceContext';
 
 export default function Header() {
     const { user, setUser } = useContext(UserChoiceContext)
     const navigate = useNavigate()
-    function SignOut(){
+    function SignOut() {
         setUser()
         navigate('/home')
 
@@ -29,9 +24,9 @@ export default function Header() {
             </Link>
             {user ?
                 <button className="button-header" type="link" htmlType="button" onClick={SignOut}>
-                Sign-Out
-            </button>
-            :
+                    Sign-Out
+                </button>
+                :
                 <Link to={'/sign-in'} >
                     <button className="button-header" type="link" htmlType="button">
                         Sign-in

@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Login from '../components/Login'
-// import Signup from '../components/Signup';
 import { UserChoiceContext } from '../context/UserChoiceContext';
 import { useContext } from "react";
-//import { Link } from 'react-router-dom';
 import {
     Button,
     Form,
@@ -16,11 +13,10 @@ import {
 import { PlusOutlined } from '@ant-design/icons';
 
 export default function AddNew() {
-    const {user, setUser} = useContext(UserChoiceContext)
+    const { user, setUser } = useContext(UserChoiceContext)
 
     function convertFile(file, obj) {
         if (file) {
-            //const fileRef = file[0] || ""
             const fileType = file.type || ""
             const reader = new FileReader()
             reader.readAsBinaryString(file)
@@ -65,15 +61,6 @@ export default function AddNew() {
             image: values.image,
             type: values.type[0]
         }
-
-//If have user, do this
-        // if (user) {
-        //     setUser(user)
-        //     navigate('addNew')
-        // }
-        // else {
-        //         navigate('signin')
-            // }
         // This is taking long... and image is not yet defined immediately below
         if (values?.image) {
             convertFile(values?.image.file.originFileObj, obj)
@@ -96,18 +83,16 @@ export default function AddNew() {
     const onFinishFailed = () => {
         message.error('Submit failed!');
     };
-    
-    //if no user, send to login page
-    useEffect (() => {
-        if(!user){
+    useEffect(() => {
+        if (!user) {
             navigate('/sign-in')
         }
-    },[user])
+    }, [user])
 
     return (
-        <div style={{height: "100%"}}>
+        <div style={{ height: "100%" }}>
             <h1 className='form-add-recipe'>Add Recipe</h1>
-            <Form 
+            <Form
                 className='add-new'
                 name='addNew'
                 layout="vertical"
@@ -115,7 +100,7 @@ export default function AddNew() {
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
             >
-                
+
                 <Form.Item label="Name of Recipe" name="name" onChange={handleForm} rules={[
                     {
                         required: true,

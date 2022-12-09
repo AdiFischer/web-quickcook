@@ -1,15 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { Card, Col, Row, Spin } from "antd";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import '../assets/Styles.css';
-// import { RecipesContext} from "../context/RecipesContext"
-// import { UserChoiceContext } from "../context/UserChoiceContext";
 
 const { Meta } = Card;
 
 export default function AllRecipes({ bestFor }) {
   const [recipes, setRecipes] = useState();
-  // const { bestFor } = useContext(UserChoiceContext);
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -27,42 +24,39 @@ export default function AllRecipes({ bestFor }) {
   return (
     <>
       <div id="all-recipes">
-        {/* <h1 className="recipe-type"></h1> */}
         <div>
           {!recipes ? (
             <Spin size="large" />
           ) : (
             <div className="recipe-cards-overall">
-              <Row 
-              className='row'
-              gutter={16} justify="space-around" align="middle"
+              <Row
+                className='row'
+                gutter={16} justify="space-around" align="middle"
               >
                 {recipes.map((recipe) => {
                   return (
-                    <Col 
-                    // xs={5} md={4}                    
-                    key={recipe._id}
-                    className="recipes-cards-group"
-                    span={8}
+                    <Col
+                      key={recipe._id}
+                      className="recipes-cards-group"
+                      span={8}
                     >
-                        <Card
-                          className="recipe-card"
-                          loading={!recipe}
-                          cover={
-                            <img onClick={() => navigate(`/recipe/${recipe._id}`)}
+                      <Card
+                        className="recipe-card"
+                        loading={!recipe}
+                        cover={
+                          <img onClick={() => navigate(`/recipe/${recipe._id}`)}
                             className="recipe-images"
-                            // style={{ width: "18rem" }}
-                              alt={recipe?.name}
-                              src={recipe?.image} 
-                            />
-                          }
-                          hoverable
-                        >
-                          <Meta
-                            title={recipe?.name}
+                            alt={recipe?.name}
+                            src={recipe?.image}
                           />
-                        </Card>
-                      </Col>
+                        }
+                        hoverable
+                      >
+                        <Meta
+                          title={recipe?.name}
+                        />
+                      </Card>
+                    </Col>
                   );
                 })}
               </Row>

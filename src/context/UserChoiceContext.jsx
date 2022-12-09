@@ -7,7 +7,6 @@ export function UserChoiceContextProvider({ children }) {
   const [bestFor, setBestFor] = useState();
   const [type, setType] = useState();
   const [user, setUser] = useState();
-
   const value = {
     bestFor,
     setBestFor,
@@ -16,8 +15,5 @@ export function UserChoiceContextProvider({ children }) {
     user,
     setUser,
   };
-
   return <Provider value={value}>{children}</Provider>;
 }
-
-// the states are being passed to the children of the provider through the use of the props syntax

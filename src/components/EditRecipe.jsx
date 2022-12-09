@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from "react-router-dom"
+import { PlusOutlined } from '@ant-design/icons';
 import {
     Button,
     Form,
@@ -9,21 +10,20 @@ import {
     Cascader,
     message
 } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
 
 export default function EditRecipe() {
     const [image, setImage] = useState()
     const [formValues, setFormValues] = useState()
     const { id } = useParams()
     const navigate = useNavigate()
-    const[ defaultFileList, setDefaultFileList] =  useState([
-          {
+    const [defaultFileList, setDefaultFileList] = useState([
+        {
             uid: "1",
             name: "damian.jpg",
             url: "https://www.damianmontero.com/damian.jpg",
-            
-          }
-        ])
+
+        }
+    ])
     useEffect(() => {
         fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/${id}`)
             .then(response => response.json())
@@ -32,13 +32,11 @@ export default function EditRecipe() {
                 defaultFileList[0].url = data[0].image
                 setDefaultFileList(defaultFileList)
                 setFormValues(data[0])
-                // form.setFieldsValue(data.message)
             })
             .catch(err => console.error(err))
     }, [id])
     function convertFile(file, obj) {
         if (file) {
-            //const fileRef = file[0] || ""
             const fileType = file.type || ""
             const reader = new FileReader()
             reader.readAsBinaryString(file)
@@ -71,13 +69,12 @@ export default function EditRecipe() {
             readyin: values.readyin,
             ingredients: values.ingredients,
             instructions: values.instructions,
-            image:  values.image,
+            image: values.image,
             type: values.type
         }
         if (values?.image && values?.image.file) {
-
             convertFile(values?.image.file.originFileObj, obj)
-        }  else {
+        } else {
 
             fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/${id}`, {
                 method: 'PATCH',
@@ -92,8 +89,7 @@ export default function EditRecipe() {
                     navigate(`/recipe/${id}`)
                 })
                 .catch(console.error)
-            }
-        
+        }
     }
     const [form, setForm] = useState({})
     const handleForm = (e) => {
@@ -106,12 +102,11 @@ export default function EditRecipe() {
     }
 
     if (!formValues) return <p>Loading</p>
-
-    console.log(formValues)
+    // console.log(formValues)
 
     return (
         <div style={{ height: "100%" }}>
-            
+
             <Form
                 initialValues={formValues}
                 className='add-new'
@@ -173,7 +168,6 @@ export default function EditRecipe() {
                     />
                 </Form.Item>
                 <Form.Item name='image' label="Upload">
-                    {/* <img src={formValues.image} /> */}
                     <Upload defaultFileList={defaultFileList} listType="picture-card">
                         <div>
                             <PlusOutlined />

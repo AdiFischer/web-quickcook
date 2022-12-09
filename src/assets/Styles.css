@@ -69,7 +69,6 @@ code {
   margin: 20px;
   box-shadow: rgba(0, 0, 0, 0.342) 0px 14px 28px,
     rgba(0, 0, 0, 0.237) 0px 10px 10px;
-
 }
 
 .recipes-cards-group {
@@ -88,17 +87,14 @@ code {
   padding: 120px;
   background-color: rgb(246, 228, 212);
   display: flex;
-  /* justify-content: space-between; */
 }
 
 .recipeContainer {
   padding-left: 2em;
   margin-top: -80px;
-  /* display: flex; */
-  /* align-items: flex-start;
-  justify-content: center; */
 }
-.imageContainer{
+
+.imageContainer {
   margin-top: -50px;
 }
 
@@ -136,6 +132,10 @@ code {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+.text-link {
+  text-decoration: none;
 }
 
 .button-recipe-type:after {
@@ -213,7 +213,8 @@ code {
   top: 0;
   border-radius: 10px;
 }
-.delete-edit-button{
+
+.delete-edit-button {
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -270,7 +271,6 @@ code {
   border: solid #6f8f71;
   border-width: 55px;
   flex-direction: column;
-  /* margin-bottom: 5px; */
   margin-left: 400px;
   margin-right: 400px;
   background-color: rgb(255, 242, 231);
@@ -311,7 +311,6 @@ code {
   border: solid #c6c9a4;
   border-width: 55px;
   flex-direction: column;
-  /* margin-top: 20px; */
   margin-left: 400px;
   margin-right: 400px;
   background-color: rgb(255, 242, 231);
@@ -338,51 +337,3 @@ code {
   margin-left: 85px;
   margin-right: 85px;
 }
-
-/* .delete-edit-button {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-} */
-
-  /* .delete-edit-button {
-  background-color: #c6c9a4;
-  border-radius: 3px;
-  border: 1px solid #6f8f71;
-  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
-  box-sizing: border-box;
-  color: #495d4a;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.15385;
-  margin: 0;
-  outline: none;
-  padding: 8px .8em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-
-.delete-edit-button:hover,
-.delete-edit-button:focus {
-  background-color: #c6c9a4;
-  color: #6f8f71;
-}
-
-.delete-edit-button:focus {
-  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
-}
-
-.delete-edit-button:active {
-  background-color: #c6c9a4;
-  box-shadow: none;
-  color: #6f8f71;
-} */

@@ -29,7 +29,6 @@ function App() {
               <Route path='/recipe/:id' element={<OneRecipe />} />
               <Route path='/editrecipe/:id' element={<EditRecipe />} />
               <Route path='/sign-in' element={<Signin />} />
-              {/* <Route path='/sign-up' element={<Signup />} /> */}
             </Routes>
           </RecipesContextProvider>
         </main>

@@ -1,8 +1,8 @@
-# Getting Started with Create React App
+# QuickCooks
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## An App for quick and easy recipes.
 
 In the project directory, you can run:
 
