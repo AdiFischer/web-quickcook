@@ -26,7 +26,7 @@ export default function OneRecipe() {
                     .then((response) => response.json())
                     .then((data) => {
                         setRecipe(data)
-                        navigate('/home')
+                        navigate(`/${recipe.type}`)
                     });
             })
             .catch((err) => {

@@ -85,6 +85,7 @@ code {
 
 .recipe {
   padding: 150px;
+  height: 100vh ;
   background-color: rgb(246, 228, 212);
   display: flex;
 }
