@@ -12,13 +12,14 @@ import EditRecipe from './components/EditRecipe';
 
 function App() {
   return (
+    <>
     <BrowserRouter>
       <UserChoiceContextProvider>
         <main >
           <Header />
           <RecipesContextProvider>
             <Routes>
-              <Route path='/home' element={<Home />} />
+              <Route path='/' element={<Home />} />
               <Route path='/seafood' element={<AllRecipes bestFor="seafood" />} />
               <Route path='/salads' element={< AllRecipes bestFor="salads" />} />
               <Route path='/dairy' element={<AllRecipes bestFor="dairy" />} />
@@ -34,6 +35,10 @@ function App() {
         </main>
       </UserChoiceContextProvider>
     </BrowserRouter>
+    <footer>
+      <p>Copyright 2022. See the code in <a href="https://github.com/AdiFischer/web-quickcook" target="_blank">GitHub</a>.</p>
+    </footer>
+    </>
   );
 }
 

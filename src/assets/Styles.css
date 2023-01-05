@@ -338,3 +338,16 @@ code {
   margin-left: 85px;
   margin-right: 85px;
 }
+
+footer { 
+  
+}
+
+footer p { 
+  font-size: 0.9em;
+  text-align: center;
+  color: #cbcbcb;
+}
+
+footer p a:link,
+footer p a:visited { color: #cbcbcb; }
