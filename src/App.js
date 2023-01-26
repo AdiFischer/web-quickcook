@@ -36,7 +36,7 @@ function App() {
       </UserChoiceContextProvider>
     </BrowserRouter>
     <footer>
-      <p>Copyright 2022. See the code in <a href="https://github.com/AdiFischer/web-quickcook" target="_blank">GitHub</a>.</p>
+      <p>Copyright © 2023 Adi Fischer | All rights reserved. See the code in <a href="https://github.com/AdiFischer/web-quickcook" target="_blank">GitHub</a>.</p>
     </footer>
     </>
   );
