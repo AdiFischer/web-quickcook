@@ -23,8 +23,9 @@ export default function Signup({ setUser }) {
         const auth = getAuth(app) // connects us to Firebase Auth
         const response = await createUserWithEmailAndPassword(auth, email, password)
             .catch(alert)
+        console.log(response)
         setUser(response.user)
-        navigate('/home')
+        navigate('/')
     }
     return (
         <div className="signup-container">

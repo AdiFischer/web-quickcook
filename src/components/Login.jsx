@@ -34,12 +34,14 @@ export default function Login({ setUser }) {
         const provider = new GoogleAuthProvider()
         provider.setCustomParameters({
             prompt: 'select_account',
-          });
+        });
         const response = await signInWithPopup(auth, provider)
             .catch(alert)
         setUser(response.user)
+        console.log(response)
         navigate('/home')
-        }
+    }
+    
     return (
         <div className="login-container">
 

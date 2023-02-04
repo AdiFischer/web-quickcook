@@ -1,5 +1,5 @@
-
-import { useEffect, useState } from 'react'
+import { UserChoiceContext } from '../context/UserChoiceContext';
+import { useEffect, useState, useContext } from 'react'
 import { useNavigate, useParams } from "react-router-dom"
 import { PlusOutlined } from '@ant-design/icons';
 import {
@@ -12,6 +12,7 @@ import {
 } from 'antd';
 
 export default function EditRecipe() {
+    const { user, setUser } = useContext(UserChoiceContext)
     const [image, setImage] = useState()
     const [formValues, setFormValues] = useState()
     const { id } = useParams()
@@ -48,6 +49,7 @@ export default function EditRecipe() {
                 fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/${id}`, {
                     method: 'PATCH',
                     headers: {
+                        'Authentication': user.accessToken,
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(obj1),
@@ -79,6 +81,7 @@ export default function EditRecipe() {
             fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/${id}`, {
                 method: 'PATCH',
                 headers: {
+                    'Authentication': user.accessToken,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(obj),

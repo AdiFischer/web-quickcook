@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Spin } from "antd";
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import '../assets/Styles.css';
-import { useNavigate } from "react-router-dom";
+import { UserChoiceContext } from '../context/UserChoiceContext';
 
 export default function OneRecipe() {
+    const { user, setUser } = useContext(UserChoiceContext)
     const { id } = useParams()
     const navigate = useNavigate()
     const [recipe, setRecipe] = useState()
@@ -15,9 +16,11 @@ export default function OneRecipe() {
             .catch(alert)
     }, [])
     function deleteRecipe(id, setRecipe) {
+        // const token = await firebase.auth().currentUser.getIdToken()
         fetch(`${process.env.REACT_APP_ENDPOINT}/recipes/${id}`, {
             method: "DELETE",
             headers: {
+                'Authentication': user.accessToken,
                 'Content-Type': 'application/json'
             }
         })

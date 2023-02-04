@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserChoiceContext } from '../context/UserChoiceContext';
-import { useContext } from "react";
 import {
     Button,
     Form,
@@ -14,7 +13,6 @@ import { PlusOutlined } from '@ant-design/icons';
 
 export default function AddNew() {
     const { user, setUser } = useContext(UserChoiceContext)
-
     function convertFile(file, obj) {
         if (file) {
             const fileType = file.type || ""
@@ -28,6 +26,7 @@ export default function AddNew() {
                 fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, {
                     method: 'POST',
                     headers: {
+                        'Authentication': user.accessToken,
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(obj1),
@@ -68,6 +67,7 @@ export default function AddNew() {
             fetch(`${process.env.REACT_APP_ENDPOINT}/recipes`, {
                 method: 'POST',
                 headers: {
+                    'Authentication': user.accessToken,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(obj),

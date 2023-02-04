@@ -7,12 +7,12 @@ export default function Header() {
     const navigate = useNavigate()
     function SignOut() {
         setUser()
-        navigate('/home')
+        navigate('/')
 
     }
     return (
         <div className="header-container">
-            <Link to={'/home'}>
+            <Link to={'/'}>
                 <button className="button-header" type="link" htmlType="button">
                     Home
                 </button>
