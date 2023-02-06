@@ -26,7 +26,7 @@ export default function Login({ setUser }) {
         const response = await signInWithEmailAndPassword(auth, email, password)
             .catch(alert)
         setUser(response.user)
-        navigate('/home')
+        navigate('/')
     }
     const handleGoogleLogin = async () => {
         const app = initializeApp(firebaseConfig) // connects to Firebase
@@ -39,9 +39,9 @@ export default function Login({ setUser }) {
             .catch(alert)
         setUser(response.user)
         console.log(response)
-        navigate('/home')
+        navigate('/')
     }
-    
+
     return (
         <div className="login-container">
 
